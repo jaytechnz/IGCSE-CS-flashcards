@@ -7,7 +7,7 @@
 
 // ─────────────── CONFIGURATION ───────────────
 // Paste your Google Apps Script Web App URL here:
-const GOOGLE_SCRIPT_URL = '';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzco_0H2PAegqsomQHn4Sm79mellXRmXiXh29L8mgbHFrAg-jrwL6a_iwgXRIDMkcbreA/exec';
 // Example: 'https://script.google.com/macros/s/AKfycbx.../exec'
 
 // Course identifier — change this when reusing for other courses
