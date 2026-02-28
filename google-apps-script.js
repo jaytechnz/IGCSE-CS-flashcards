@@ -37,7 +37,7 @@
 //    https://script.google.com/macros/s/AKfycbx.../exec
 //
 // 9. Paste that URL into your app.js file on this line:
-//    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbza7-2_GxfWUJ5jfIENPM_7Ssi29JKDxcy-PBlv0_8867_eWqJ4rPR7J1t1GeFj7es3tg/exec';
+//    const GOOGLE_SCRIPT_URL = 'paste-url-here';
 //
 // 10. Done! Student sessions will now appear in your
 //     spreadsheet automatically.
@@ -46,13 +46,13 @@
 // WHAT YOU'LL SEE IN THE SPREADSHEET:
 // ───────────────────
 // "Sessions" sheet — one row per study session:
-//   Timestamp | Student Name | Student ID | Course |
-//   Topics Studied | Total Cards | Don't Know | Somewhat |
-//   Know Well | % Know Well | Duration (mins)
+//   Timestamp | Student Email | Course | Topics Studied |
+//   Total Cards | Don't Know | Somewhat | Know Well |
+//   % Know Well | Duration (mins)
 //
 // "CardDetail" sheet — one row per card rating:
-//   Timestamp | Student Name | Student ID | Course |
-//   Unit | Subtopic | Term | Rating | Box
+//   Timestamp | Student Email | Course | Unit |
+//   Subtopic | Term | Rating | Box
 //
 // ═══════════════════════════════════════════════════════════
 // TIPS:
@@ -124,7 +124,7 @@ function writeSessionSummary(data) {
   if (!sheet) {
     sheet = ss.insertSheet('Sessions');
     var headers = [
-      'Timestamp', 'Student Name', 'Student ID', 'Course',
+      'Timestamp', 'Student Email', 'Course',
       'Topics Studied', 'Total Cards', "Don't Know", 'Somewhat',
       'Know Well', '% Know Well', 'Duration (mins)'
     ];
@@ -144,8 +144,7 @@ function writeSessionSummary(data) {
 
   sheet.appendRow([
     new Date(),
-    data.studentName || '',
-    data.studentId || '',
+    data.studentEmail || '',
     data.course || '',
     data.topics || '',
     total,
@@ -169,7 +168,7 @@ function writeCardDetail(data) {
   if (!sheet) {
     sheet = ss.insertSheet('CardDetail');
     var headers = [
-      'Timestamp', 'Student Name', 'Student ID', 'Course',
+      'Timestamp', 'Student Email', 'Course',
       'Unit', 'Subtopic', 'Term', 'Rating', 'Box'
     ];
     sheet.appendRow(headers);
@@ -185,8 +184,7 @@ function writeCardDetail(data) {
       var card = data.cards[i];
       rows.push([
         timestamp,
-        data.studentName || '',
-        data.studentId || '',
+        data.studentEmail || '',
         data.course || '',
         card.unit || '',
         card.sub || '',
@@ -202,7 +200,7 @@ function writeCardDetail(data) {
         sheet.getLastRow() + 1,
         1,
         rows.length,
-        9
+        8
       ).setValues(rows);
     }
   }

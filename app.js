@@ -31,8 +31,7 @@ let sessionCardRatings = [];   // detailed per-card ratings for reporting
 let sessionStartTime = null;   // track session duration
 
 // Student info
-let studentName = '';
-let studentId = '';
+let studentEmail = '';
 
 // ─────────────── ELEMENTS ───────────────
 const $ = (s) => document.querySelector(s);
@@ -54,7 +53,7 @@ const sidebar          = $('#sidebar');
 // ─────────────────────────────────────────────────
 // STUDENT IDENTIFICATION
 // ─────────────────────────────────────────────────
-// On first visit, the student enters their name and ID.
+// On first visit, the student enters their school email.
 // This is saved to localStorage so they only need to do it once.
 
 function loadStudentInfo() {
@@ -62,79 +61,63 @@ function loadStudentInfo() {
         const raw = localStorage.getItem(STUDENT_KEY);
         if (raw) {
             const info = JSON.parse(raw);
-            studentName = info.name || '';
-            studentId = info.id || '';
+            studentEmail = info.email || '';
         }
     } catch (e) {
-        studentName = '';
-        studentId = '';
+        studentEmail = '';
     }
 }
 
 function saveStudentInfo() {
     try {
         localStorage.setItem(STUDENT_KEY, JSON.stringify({
-            name: studentName,
-            id: studentId
+            email: studentEmail
         }));
     } catch (e) { /* ignore */ }
 }
 
 function promptStudentInfo() {
-    // Only prompt if we don't have info yet
-    if (studentName && studentId) return;
+    // Only prompt if we don't have email yet
+    if (studentEmail) return;
 
-    // Create a modal overlay
     const overlay = document.createElement('div');
     overlay.className = 'student-modal-overlay';
     overlay.innerHTML = `
         <div class="student-modal">
             <h2>👋 Welcome!</h2>
-            <p>Please enter your details so your teacher can track your progress.</p>
+            <p>Please enter your school email so your teacher can track your progress.</p>
             <div class="student-field">
-                <label for="input-name">Your Name</label>
-                <input type="text" id="input-name" placeholder="e.g. Jane Smith" value="${studentName}" autocomplete="name">
-            </div>
-            <div class="student-field">
-                <label for="input-id">Student ID</label>
-                <input type="text" id="input-id" placeholder="e.g. 12345" value="${studentId}" autocomplete="off">
+                <label for="input-email">School Email</label>
+                <input type="email" id="input-email" placeholder="e.g. jsmith@school.edu" autocomplete="email">
             </div>
             <button class="btn-primary" id="btn-save-student">Start Learning</button>
-            <p class="student-note">This is saved on your device so you won't need to enter it again.</p>
+            <p class="student-note">This is saved on your device — you won't need to enter it again.</p>
         </div>
     `;
     document.body.appendChild(overlay);
 
-    // Focus the first empty field
     setTimeout(() => {
-        const nameInput = $('#input-name');
-        const idInput = $('#input-id');
-        if (!nameInput.value) nameInput.focus();
-        else if (!idInput.value) idInput.focus();
+        const emailInput = $('#input-email');
+        if (emailInput) emailInput.focus();
     }, 100);
 
-    // Save on button click
     $('#btn-save-student').addEventListener('click', () => {
-        const name = $('#input-name').value.trim();
-        const id = $('#input-id').value.trim();
+        const email = $('#input-email').value.trim();
 
-        if (!name) {
-            $('#input-name').style.borderColor = 'var(--conf-no-border)';
-            $('#input-name').focus();
+        if (!email || !email.includes('@')) {
+            $('#input-email').style.borderColor = 'var(--conf-no-border)';
+            $('#input-email').focus();
             return;
         }
 
-        studentName = name;
-        studentId = id;
+        studentEmail = email;
         saveStudentInfo();
         overlay.remove();
     });
 
-    // Also allow Enter key to submit
-    overlay.querySelectorAll('input').forEach(input => {
-        input.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') $('#btn-save-student').click();
-        });
+    // Allow Enter key to submit
+    overlay.querySelector('input').addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') $('#btn-save-student').click();
     });
 }
 
@@ -229,8 +212,7 @@ async function reportSession() {
             headers: { 'Content-Type': 'text/plain' },
             body: JSON.stringify({
                 action: 'session',
-                studentName: studentName,
-                studentId: studentId,
+                studentEmail: studentEmail,
                 topics: topicNames,
                 totalCards: sessionResults.no + sessionResults.maybe + sessionResults.yes,
                 dontKnow: sessionResults.no,
@@ -253,8 +235,7 @@ async function reportSession() {
                 headers: { 'Content-Type': 'text/plain' },
                 body: JSON.stringify({
                     action: 'cardDetail',
-                    studentName: studentName,
-                    studentId: studentId,
+                    studentEmail: studentEmail,
                     course: COURSE_NAME,
                     cards: sessionCardRatings
                 })

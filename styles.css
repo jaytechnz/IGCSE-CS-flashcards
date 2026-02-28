@@ -224,8 +224,7 @@ body::before {
 .main-content {
     position: relative;
     display: flex;
-    height: calc(100vh - 72px);
-    overflow: hidden;
+    height: calc(100vh - 56px);
 }
 
 /* ─────────────── SIDEBAR ─────────────── */
@@ -790,6 +789,89 @@ body::before {
     flex-wrap: wrap;
 }
 .complete-actions .btn-primary { width: auto; }
+
+/* ─────────────── STUDENT MODAL ─────────────── */
+.student-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(58, 50, 41, .6);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    animation: modalFadeIn .3s ease both;
+}
+.student-modal {
+    background: var(--bg-sidebar);
+    border-radius: var(--radius-lg);
+    padding: 2rem 2rem 1.5rem;
+    max-width: 380px;
+    width: 90%;
+    box-shadow: 0 16px 48px rgba(58, 50, 41, .25);
+    text-align: center;
+    animation: modalSlideUp .35s ease both;
+}
+.student-modal h2 {
+    font-family: var(--ff-display);
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: .5rem;
+}
+.student-modal p {
+    color: var(--text-secondary);
+    font-size: .9rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+.student-field {
+    text-align: left;
+    margin-bottom: 1rem;
+}
+.student-field label {
+    display: block;
+    font-size: .8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: .35rem;
+}
+.student-field input {
+    width: 100%;
+    padding: .6rem .85rem;
+    border: 2px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    background: var(--bg-card-front);
+    color: var(--text-primary);
+    font-family: var(--ff-body);
+    font-size: .95rem;
+    transition: border-color var(--transition-fast);
+    outline: none;
+}
+.student-field input:focus {
+    border-color: var(--text-accent);
+}
+.student-field input::placeholder {
+    color: var(--text-tertiary);
+}
+.student-modal .btn-primary {
+    margin-top: .25rem;
+}
+.student-note {
+    font-size: .75rem !important;
+    color: var(--text-tertiary) !important;
+    margin-top: .75rem;
+    margin-bottom: 0 !important;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+@keyframes modalSlideUp {
+    from { opacity: 0; transform: translateY(24px) scale(.96); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
 
 /* ─────────────── ANIMATIONS ─────────────── */
 @keyframes fadeUp {
