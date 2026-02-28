@@ -88,7 +88,7 @@ function promptStudentInfo() {
             <p>Please enter your school email so your teacher can track your progress.</p>
             <div class="student-field">
                 <label for="input-email">School Email</label>
-                <input type="email" id="input-email" placeholder="e.g. jsmith@school.edu" autocomplete="email">
+                <input type="email" id="input-email" placeholder="e.g. jane.white@student.cga.school" autocomplete="email">
             </div>
             <button class="btn-primary" id="btn-save-student">Start Learning</button>
             <p class="student-note">This is saved on your device — you won't need to enter it again.</p>
