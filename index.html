@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IGCSE CS 0478 — Flashcard Study Tool</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,500;0,9..40,700;1,9..40,400&family=Fraunces:opsz,wght@9..144,600;9..144,800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- ═══════════════ TOP BAR ═══════════════ -->
+    <header class="top-bar">
+        <div class="top-bar-left">
+            <span class="logo-icon"><img src="Casey-Systems-logo.png"/></span>
+            <h1 class="logo-text">IGCSE Computer Science <span class="accent">Revision</span> Flash Cards</h1>
+        </div>
+        <div class="top-bar-right">
+            <button id="btn-dyslexic" class="icon-btn" title="Toggle OpenDyslexic font" aria-label="Toggle dyslexic-friendly font">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/></svg>
+                <span class="btn-label">Font</span>
+            </button>
+            <button id="btn-theme" class="icon-btn" title="Toggle dark / light theme" aria-label="Toggle theme">
+                <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg>
+                <span class="btn-label">Theme</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ═══════════════ MAIN CONTENT ═══════════════ -->
+    <main class="main-content">
+
+        <!-- ── SIDEBAR / TOPIC SELECTOR ── -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>Topics</h2>
+                <button id="btn-sidebar-close" class="sidebar-close" aria-label="Close menu">&times;</button>
+            </div>
+            <div class="sidebar-body" id="topic-list">
+                <!-- Populated by JS -->
+            </div>
+            <div class="sidebar-footer">
+                <button id="btn-start" class="btn-primary">Start Studying</button>
+            </div>
+        </aside>
+
+        <!-- ── MOBILE: hamburger to open sidebar ── -->
+        <button id="btn-sidebar-open" class="hamburger" aria-label="Open topic menu">
+            <span></span><span></span><span></span>
+        </button>
+
+        <!-- ── STUDY AREA ── -->
+        <section class="study-area" id="study-area">
+
+            <!-- Welcome / empty state -->
+            <div class="welcome-state" id="welcome-state">
+                <div class="welcome-inner">
+                    <span class="welcome-emoji"><img src="Casey-Systems-1.png"/></span>
+                    <h2>Welcome!</h2>
+                    <p>Select one or more topics from the menu, then press <strong>Start Studying</strong> to begin your flashcard session.</p>
+                    <p class="welcome-sub">Cards use the <em>Leitner spaced-repetition system</em> — the less you know a term, the more often you'll see it.</p>
+                </div>
+            </div>
+
+            <!-- Card view (hidden until started) -->
+            <div class="card-view hidden" id="card-view">
+
+                <!-- Progress -->
+                <div class="progress-row">
+                    <div class="progress-bar-track">
+                        <div class="progress-bar-fill" id="progress-fill"></div>
+                    </div>
+                    <span class="progress-text" id="progress-text">0 / 0</span>
+                </div>
+
+                <!-- Leitner box indicators -->
+                <div class="leitner-boxes">
+                    <div class="lbox" data-box="1">
+                        <span class="lbox-label">Don't Know</span>
+                        <span class="lbox-count" id="box1-count">0</span>
+                    </div>
+                    <div class="lbox" data-box="2">
+                        <span class="lbox-label">Somewhat</span>
+                        <span class="lbox-count" id="box2-count">0</span>
+                    </div>
+                    <div class="lbox" data-box="3">
+                        <span class="lbox-label">Know Well</span>
+                        <span class="lbox-count" id="box3-count">0</span>
+                    </div>
+                </div>
+
+                <!-- The flash card -->
+                <div class="card-container" id="card-container">
+                    <div class="flashcard" id="flashcard" tabindex="0" role="button" aria-label="Click to flip card">
+                        <div class="card-face card-front">
+                            <span class="card-badge" id="card-badge">Term</span>
+                            <p class="card-text" id="card-front-text"></p>
+                            <span class="card-hint">click to flip</span>
+                        </div>
+                        <div class="card-face card-back">
+                            <span class="card-badge badge-def">Definition</span>
+                            <p class="card-text" id="card-back-text"></p>
+                            <span class="card-hint">click to flip back</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Confidence buttons -->
+                <div class="confidence-buttons" id="confidence-buttons">
+                    <button class="conf-btn conf-no" id="btn-no" title="I don't know this at all">
+                        <span class="conf-icon">✕</span>
+                        <span>Don't Know</span>
+                    </button>
+                    <button class="conf-btn conf-maybe" id="btn-maybe" title="I somewhat know this">
+                        <span class="conf-icon">~</span>
+                        <span>Somewhat</span>
+                    </button>
+                    <button class="conf-btn conf-yes" id="btn-yes" title="I know this really well">
+                        <span class="conf-icon">✓</span>
+                        <span>Know Well</span>
+                    </button>
+                </div>
+
+                <!-- Nav -->
+                <div class="card-nav">
+                    <button class="btn-secondary" id="btn-restart">↻ Restart</button>
+                </div>
+            </div>
+
+            <!-- Session complete -->
+            <div class="complete-state hidden" id="complete-state">
+                <div class="complete-inner">
+                    <span class="welcome-emoji"><img src="Casey-Systems-2.png"/></span>
+                    <h2>Session Complete!</h2>
+                    <div class="results-grid" id="results-grid"></div>
+                    <p id="results-message"></p>
+                    <div class="complete-actions">
+                        <button class="btn-primary" id="btn-review">Review Weak Cards</button>
+                        <button class="btn-secondary" id="btn-new-session">New Session</button>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="study-footer">&copy Crimson Global Academy 2006</footer>
+
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+    
+</body>
+
+</html>

@@ -1,0 +1,829 @@
+# 1. Data Representation
+
+## 1.1 Number Systems
+Binary
+A base-2 number system that uses only two digits: 0 and 1. It is the fundamental language of computers.
+
+Denary (Decimal)
+A base-10 number system using digits 0–9, which is the standard system used by humans for everyday counting.
+
+Hexadecimal
+A base-16 number system using digits 0–9 and letters A–F, often used as a shorthand for binary values.
+
+Bit
+The smallest unit of data in computing, representing a single binary digit — either 0 or 1.
+
+Nibble
+A group of 4 bits, which can represent a single hexadecimal digit.
+
+Byte
+A group of 8 bits, commonly used as the basic unit of data storage and processing.
+
+Binary Addition
+The process of adding two binary numbers together, following rules such as 1 + 1 = 10 (carry the 1).
+
+Overflow Error
+An error that occurs when a calculation produces a result too large to be stored in the available number of bits.
+
+Binary Shift
+Moving the bits of a binary number to the left or right; a left shift multiplies by 2, a right shift divides by 2.
+
+Logic Shift
+A binary shift, left or right, that is performed on unsigned binary integers.
+
+Two's Complement
+A method for representing negative numbers in binary, where the most significant bit indicates the sign.
+
+
+## 1.2 Text, Sound & Images
+ASCII
+American Standard Code for Information Interchange — a character set using 7 bits to represent 128 different characters.
+
+Unicode
+A universal character encoding standard that can represent characters from virtually every written language, using up to 32 bits.
+
+Character Set
+A defined list of characters recognised by a computer, where each character is assigned a unique binary code.
+
+Pixel
+The smallest individual element of a digital image, represented as a single point of colour.
+
+Image Resolution
+The number of pixels per unit of length in an image; higher resolution means more detail.
+
+Colour Depth
+The number of bits used to represent the colour of each pixel; more bits allow more colours.
+
+Bitmap Image
+An image made up of a grid of pixels, where each pixel's colour is stored as a binary value.
+
+Sample Rate
+The number of audio samples captured per second during analogue-to-digital conversion, measured in Hertz (Hz).
+
+Sample Resolution (Bit Depth)
+The number of bits used to store each audio sample; higher bit depth means more accurate sound reproduction.
+
+Sound File Size Calculation
+File size = sample rate × sample resolution × duration (seconds). Larger values mean bigger files.
+
+Image File Size Calculation
+File size = image resolution (total pixels) × colour depth. More pixels or colours means a larger file.
+
+Metadata
+Data about data — additional information stored within a file such as image dimensions, file type, or creation date.
+
+
+## 1.3 Data Storage & Compression
+Kibibyte (KiB)
+A unit of data storage equal to 1,024 bytes.
+
+Mebibyte (MiB)
+A unit of data storage equal to 1,024 kilobytes (approximately one million bytes).
+
+Gibibyte (GiB)
+A unit of data storage equal to 1,024 megabytes (approximately one billion bytes).
+
+Tebibyte (TiB)
+A unit of data storage equal to 1,024 gigabytes (approximately one trillion bytes).
+
+Lossy Compression
+A method of reducing file size by permanently removing some data, which may reduce quality (e.g. JPEG, MP3).
+
+Lossless Compression
+A method of reducing file size without losing any data, allowing the original file to be perfectly reconstructed (e.g. PNG, FLAC).
+
+Run-Length Encoding (RLE)
+A lossless compression technique that stores consecutive repeated values as a single value and a count.
+
+
+# 2. Data Transmission
+
+## 2.1 Types & Methods
+Serial Transmission
+Data is sent one bit at a time along a single data line, suitable for long-distance communication.
+
+Parallel Transmission
+Multiple bits are sent simultaneously along multiple data lines, typically used for short distances.
+
+Simplex
+Data transmission in one direction only (e.g. a keyboard sending data to a computer).
+
+Half-Duplex
+Data can be transmitted in both directions, but only one direction at a time (e.g. a walkie-talkie).
+
+Full-Duplex
+Data can be transmitted in both directions at the same time (e.g. a telephone conversation).
+
+Bit Rate
+The number of bits that can be transmitted per second, often measured in bits per second (bps).
+
+Bandwidth
+The maximum amount of data that can be transmitted over a network connection in a given time period.
+
+Latency
+The delay between sending data and it being received, often caused by distance or network congestion.
+
+
+## 2.2 Error Detection
+Parity Bit
+An extra bit added to a binary code to make the total number of 1s either even (even parity) or odd (odd parity), used for error detection.
+
+Parity Check
+A method of error detection that checks whether the number of 1-bits in a data unit matches the expected parity (even or odd).
+
+Check Digit
+An extra digit added to a code number (such as a barcode) that is calculated from the other digits to detect input errors.
+
+Checksum
+A value calculated from a block of data and sent with it; the receiver recalculates to check for transmission errors.
+
+Echo Check
+A method of error detection where the receiver sends data back to the sender, who compares it with the original.
+
+Automatic Repeat Request (ARQ)
+A protocol where the receiver automatically requests retransmission of data that is detected as corrupted or lost.
+
+
+## 2.3 Encryption
+Encryption
+The process of converting plaintext into ciphertext using an algorithm and a key, to prevent unauthorised access.
+
+Symmetric Encryption
+A type of encryption where the same key is used to both encrypt and decrypt the data.
+
+Asymmetric Encryption
+A type of encryption using a pair of keys — a public key to encrypt and a private key to decrypt.
+
+Plaintext
+The original, readable data before encryption is applied.
+
+Cipher text
+The scrambled, unreadable output produced after encryption has been applied to plaintext.
+
+Public key
+An encryption key that is made available to any computer that requests it. Used to encrypt plaintext in asymmetric encryption.
+
+Private key
+An encryption that is only known to the owner; it is never shared. Used to decrypt cipher text in symmetric encryption.
+
+
+# 3. Hardware
+
+## 3.1 Computer Architecture
+Central Processing Unit (CPU)
+The main processor of a computer that fetches, decodes, and executes instructions from memory.
+
+Arithmetic Logic Unit (ALU)
+The part of the CPU that performs arithmetic calculations and logical comparisons.
+
+Control Unit (CU)
+The part of the CPU that directs the operation of the processor by interpreting instructions and sending control signals.
+
+Register
+A small, high-speed storage location within the CPU used to temporarily hold data and instructions during processing.
+
+Accumulator (ACC)
+A register in the CPU where the results of calculations performed by the ALU are temporarily stored.
+
+Program Counter (PC)
+A register that holds the memory address of the next instruction to be fetched and executed.
+
+Memory Address Register (MAR)
+A register that holds the address in memory that is being read from or written to.
+
+Memory Data Register (MDR)
+A register that holds the data that has just been read from memory or is about to be written to memory.
+
+Current Instruction Register (CIR)
+A register that holds the instruction currently being decoded and executed by the CPU.
+
+System Bus
+A set of parallel wires connecting the CPU to main memory and other components, consisting of the data, address, and control buses.
+
+Data Bus
+A bidirectional bus that carries data between the CPU and memory or I/O devices.
+
+Address Bus
+A unidirectional bus that carries the address of a memory location from the CPU to memory.
+
+Control Bus
+A bus that carries control signals from the CPU to coordinate operations across the system.
+
+Fetch-Decode-Execute Cycle
+The process by which the CPU fetches an instruction from memory, decodes it to understand the operation, and then executes it.
+
+Von Neumann Architecture
+A computer architecture where instructions and data share the same memory and bus; instructions are processed sequentially.
+
+Clock Speed
+The number of cycles a CPU can perform per second, measured in Hertz (Hz); higher speed means more instructions processed.
+
+Cache Memory
+A small, extremely fast memory located close to the CPU that stores frequently accessed data and instructions to speed up processing.
+
+Core (Processor Core)
+An independent processing unit within the CPU; multiple cores allow parallel execution of instructions.
+
+
+## 3.2 Input & Output Devices
+Input Device
+Hardware used to enter data into a computer system, such as a keyboard, mouse, microphone, or scanner.
+
+Output Device
+Hardware that presents processed data to the user, such as a monitor, printer, or speaker.
+
+Barcode Scanner
+An input device that reads barcodes by shining a light and detecting reflected patterns to identify products.
+
+QR Code
+A two-dimensional barcode that stores information in a pattern of black and white squares, readable by cameras.
+
+Touchscreen
+An input/output device that detects the position of a touch on its surface, allowing direct interaction with displayed content.
+
+Sensor
+An input device that detects physical properties such as temperature, light, pressure, or motion and converts them to data.
+
+Actuator
+An output device that converts an electrical signal into physical movement, such as a motor or valve.
+
+Inkjet Printer
+A printer that creates images by spraying tiny droplets of liquid ink onto paper.
+
+Laser Printer
+A printer that uses a laser beam to form an image on a drum, which is then transferred to paper using toner.
+
+3D Printer
+An output device that creates three-dimensional objects by depositing material layer by layer from a digital model.
+
+
+## 3.3 Data Storage
+Primary Storage
+Memory that is directly accessible by the CPU, including RAM and ROM; fast but limited in size.
+
+Secondary Storage
+Non-volatile storage used for long-term data retention, such as hard drives, SSDs, and USB flash drives.
+
+RAM (Random Access Memory)
+Volatile primary memory that stores data and programs currently in use; contents are lost when power is turned off.
+
+ROM (Read Only Memory)
+Non-volatile primary memory that stores permanent instructions such as the boot-up program (BIOS/firmware).
+
+Virtual Memory
+A section of the hard drive used as an extension of RAM when physical RAM is full, which is slower than actual RAM.
+
+Solid State Drive (SSD)
+A secondary storage device that uses flash memory with no moving parts, offering fast read/write speeds.
+
+Hard Disk Drive (HDD)
+A secondary storage device that stores data on spinning magnetic platters accessed by a read/write head.
+
+Optical Disc
+A storage medium (e.g. CD, DVD, Blu-ray) that uses laser light to read and write data on a reflective surface.
+
+Cloud Storage
+Remote servers accessed over the internet that store data, allowing access from any device with connectivity.
+
+Volatile Memory
+Memory that loses its contents when the power supply is turned off (e.g. RAM).
+
+Non-Volatile Memory
+Memory that retains its contents even when the power supply is turned off (e.g. ROM, SSD, HDD).
+
+
+# 4. Software
+
+## 4.1 System Software
+Operating System (OS)
+System software that manages hardware resources, provides a user interface, and runs application programs.
+
+Device Driver
+Software that allows the operating system to communicate with a specific hardware device.
+
+Utility Software
+System programs that perform maintenance tasks such as disk defragmentation, file compression, and virus scanning.
+
+Interrupt
+A signal sent to the CPU to indicate that an event needs immediate attention, temporarily halting the current process.
+
+Interrupt Service Routine (ISR)
+A special program that the CPU runs in response to an interrupt, handling the event before returning to the original task.
+
+Multitasking
+The ability of an operating system to manage multiple processes at the same time by rapidly switching between them.
+
+Memory Management
+The OS function that allocates and deallocates RAM to running programs to ensure efficient use of memory.
+
+File Management
+The OS function that organises, stores, retrieves, and manages files and directories on storage devices.
+
+User Interface
+The means by which a user interacts with a computer system, such as a graphical (GUI) or command-line interface (CLI).
+
+
+## 4.2 Application Software
+Application Software
+Programs designed to perform tasks for users, such as word processors, spreadsheets, and web browsers.
+
+Open Source Software
+Software whose source code is freely available for anyone to view, modify, and distribute.
+
+Proprietary Software
+Software owned by an individual or company with restrictions on use, modification, and distribution; source code is not shared.
+
+
+## 4.3 Translators
+High-Level Language
+A programming language that is closer to human language, platform-independent, and needs translation to machine code.
+
+Low-Level Language
+A programming language close to machine code, including assembly language and machine code itself.
+
+Assembly Language
+A low-level language that uses mnemonics (e.g. ADD, SUB, LDA) to represent machine code instructions.
+
+Machine Code
+The lowest-level programming language consisting of binary instructions that the CPU can directly execute.
+
+Compiler
+A translator that converts an entire high-level language program into machine code in one go before execution.
+
+Interpreter
+A translator that converts and executes a high-level language program one line at a time.
+
+Assembler
+A translator that converts assembly language mnemonics into machine code.
+
+Source Code
+The original code written by a programmer in a high-level or assembly language, before it is translated.
+
+Object Code
+The machine code output produced by a compiler or assembler from the source code.
+
+
+# 5. The Internet & Networking
+
+## 5.1 Networks
+Local Area Network (LAN)
+A network covering a small geographical area such as a building or campus, typically owned by one organisation.
+
+Wide Area Network (WAN)
+A network that covers a large geographical area, connecting multiple LANs, often using leased telecommunication lines.
+
+Client-Server Network
+A network model where a central server provides resources and services to multiple client computers.
+
+Peer-to-Peer Network
+A network model where all devices have equal status and can share resources directly without a central server.
+
+Router
+A networking device that forwards data packets between different networks, directing traffic to its destination.
+
+Switch
+A networking device that connects devices within a LAN and uses MAC addresses to forward data to the correct device.
+
+Network Interface Card (NIC)
+Hardware inside a device that enables it to connect to a network, either wired or wirelessly.
+
+Wireless Access Point (WAP)
+A device that allows wireless devices to connect to a wired network using Wi-Fi.
+
+Transmission Media
+The physical or wireless medium used to carry data signals, such as copper cable, fibre optic cable, or radio waves.
+
+Protocol
+A set of rules that governs how data is transmitted and received across a network.
+
+TCP/IP
+Transmission Control Protocol / Internet Protocol — the fundamental suite of protocols used for communication over the internet.
+
+HTTP / HTTPS
+Hypertext Transfer Protocol (Secure) — a protocol used for transferring web pages; HTTPS includes encryption for security.
+
+FTP
+File Transfer Protocol — a protocol used to transfer files between a client and server on a network.
+
+IP Address
+A unique numerical label assigned to each device on a network, used to identify and locate it for communication.
+
+MAC Address
+A unique hardware address permanently assigned to a network interface card (NIC) by the manufacturer.
+
+Packet
+A small unit of data transmitted over a network, containing a header (address info) and payload (actual data).
+
+Packet Switching
+A method of data transmission where data is broken into packets that may take different routes to reach the destination.
+
+
+## 5.2 The Internet
+Internet
+A global system of interconnected computer networks that use the TCP/IP protocol to communicate.
+
+World Wide Web (WWW)
+A collection of web pages and resources accessed via the internet using web browsers and HTTP/HTTPS.
+
+Web Browser
+Application software used to access and display web pages from the World Wide Web.
+
+URL (Uniform Resource Locator)
+The address of a specific resource on the internet, such as a web page (e.g. https://www.example.com).
+
+DNS (Domain Name System)
+A system that translates human-readable domain names (e.g. www.example.com) into IP addresses.
+
+Cookie
+A small text file stored on a user's device by a website to remember preferences, login sessions, or track activity.
+
+Firewall
+A security system that monitors and controls incoming and outgoing network traffic based on predetermined rules.
+
+Proxy Server
+A server that acts as an intermediary between a user's device and the internet, used for filtering, caching, or privacy.
+
+
+## 5.3 Cyber Security Threats
+Malware
+Malicious software designed to damage, disrupt, or gain unauthorised access to a computer system.
+
+Virus
+A type of malware that attaches to a legitimate program and replicates itself when the host program is executed.
+
+Worm
+A type of malware that replicates itself to spread across networks without needing a host program.
+
+Trojan Horse
+Malware disguised as legitimate software that performs harmful actions once installed.
+
+Spyware
+Malware that secretly monitors and collects information about a user's activities without their knowledge.
+
+Ransomware
+Malware that encrypts a victim's files and demands payment to restore access.
+
+Phishing
+A social engineering attack that uses fraudulent emails or websites to trick users into revealing personal information.
+
+Pharming
+A cyber attack that redirects a website's traffic to a fraudulent website without the user's knowledge.
+
+Social Engineering
+The use of deception to manipulate people into revealing confidential information or performing security-compromising actions.
+
+Brute-Force Attack
+A method of cracking passwords by systematically trying every possible combination until the correct one is found.
+
+DDoS Attack
+Distributed Denial of Service — an attack that overwhelms a server with a flood of traffic from multiple sources, making it unavailable.
+
+SQL Injection
+An attack that inserts malicious SQL code into a web form input to manipulate or access a database.
+
+
+# 6. Automated & Emerging Technologies
+
+## 6.1 Automated Systems
+Automation
+The use of technology to perform tasks with minimal human intervention.
+
+Sensor (in automation)
+A device that detects changes in the environment (temperature, pressure, light, etc.) and sends data to a microprocessor.
+
+Microprocessor
+A small processor embedded in devices to receive sensor input, process it, and control actuators.
+
+Embedded System
+A computer system built into a larger device to perform dedicated functions, such as in washing machines or traffic lights.
+
+
+## 6.2 Robotics & AI
+Artificial Intelligence (AI)
+The simulation of human intelligence by computer systems, enabling machines to learn, reason, and make decisions.
+
+Machine Learning
+A subset of AI where systems improve their performance on a task by learning from data without being explicitly programmed.
+
+Robot
+A programmable machine capable of carrying out complex actions automatically, often involving physical movement.
+
+
+# 7. Algorithm Design & Problem-Solving
+
+## 7.1 Program Development
+Algorithm
+A step-by-step set of instructions designed to perform a specific task or solve a problem.
+
+Pseudocode
+A structured, human-readable description of an algorithm that uses a mix of natural language and programming constructs.
+
+Flowchart
+A visual diagram using standard symbols to represent the steps and flow of an algorithm.
+
+Decomposition
+Breaking a complex problem down into smaller, more manageable sub-problems.
+
+Abstraction
+The process of removing unnecessary details to focus on the essential features of a problem.
+
+Trace Table
+A table used to record the values of variables at each step of an algorithm to check its correctness.
+
+Dry Run
+Manually working through an algorithm step by step using a trace table to check for errors.
+
+Structure Diagram
+A diagram that shows how a problem is broken down into sub-tasks, representing the hierarchical structure.
+
+
+## 7.2 Searching & Sorting
+Linear Search
+A search algorithm that checks each item in a list sequentially from the start until the target is found or the list ends.
+
+Bubble Sort
+A sorting algorithm that repeatedly compares adjacent pairs and swaps them if they are in the wrong order, until the list is sorted.
+
+
+# 8. Programming
+
+## 8.1 Programming Concepts
+Variable
+A named storage location in memory whose value can change during program execution.
+
+Constant
+A named storage location in memory whose value is set once and cannot be changed during program execution.
+
+Data Type
+A classification that defines what kind of data a variable can hold, such as Integer, Real, String, Char, or Boolean.
+
+Integer
+A data type that stores whole numbers, both positive and negative (e.g. -3, 0, 42).
+
+Real (Float)
+A data type that stores numbers with a decimal point (e.g. 3.14, -0.5).
+
+String
+A data type that stores a sequence of characters (e.g. "Hello").
+
+Char
+A data type that stores a single character (e.g. 'A', '7').
+
+Boolean
+A data type that can only hold one of two values: TRUE or FALSE.
+
+Flag Variable
+A Boolean variable used in algorithms to control condition-controlled loops and/or check the result of an algorithm once it has been completed. May be used in linear search and bubble sort algorithms.
+
+Assignment
+The process of storing a value in a variable using an assignment operator (e.g. x ← 5).
+
+Sequence
+A programming construct where instructions are executed one after another in order.
+
+Selection (IF statement)
+A programming construct that allows different paths of execution based on whether a condition is true or false.
+
+Iteration (Loop)
+A programming construct that repeats a set of instructions, such as FOR, WHILE, and REPEAT…UNTIL loops.
+
+Count-Controlled Loop (FOR)
+A loop that repeats a set number of times using a counter variable.
+
+Pre-Condition Loop (WHILE)
+A loop that checks the condition before executing the loop body; the body may never execute if the condition is false initially.
+
+Post-Condition Loop (REPEAT…UNTIL)
+A loop that executes the loop body first and then checks the condition; the body always executes at least once.
+
+Array
+A data structure that stores a fixed-size collection of elements of the same data type, accessed by an index.
+
+Element
+A slot in an array that contains a value.
+
+Lower bound
+The first element in an array; in pseudocode arrays are either 0-indexed or 1-indexed.
+
+Upper bound
+The highest index value in an array, representing the last element in the array.
+
+Length
+The size/number of elements that could be stored in an array's dimension.
+
+One-Dimensional Array (1D)
+An array with a single row or column of elements, like a list. Each element is accessed by a single index value.
+
+Two-Dimensional Array (2D)
+An array with rows and columns forming a table-like structure. Each element is access by two index values.
+
+
+## 8.2 Procedures & Functions
+Procedure
+A named block of reusable code that performs a specific task but does not return a value.
+
+Function
+A named block of reusable code that performs a task and returns a value to the calling code.
+
+Parameter
+A variable listed in a procedure or function definition that receives a value (argument) when called.
+
+Argument
+The actual value passed to a procedure or function when it is called.
+
+Local Variable
+A variable declared inside a procedure or function; it can only be accessed within that block of code.
+
+Global Variable
+A variable declared outside all procedures/functions; it can be accessed from anywhere in the program.
+
+Scope
+The region of a program where a variable is accessible; local variables have limited scope, global variables have program-wide scope.
+
+Library Routine
+A pre-written, tested function or procedure available for programmers to use, such as ROUND(), RANDOM(), LENGTH().
+
+
+## 8.3 File Handling
+File Handling
+The process of reading from and writing to external files (e.g. text files) to store data permanently.
+
+READ (from file)
+An operation that retrieves data from an external file and stores it in a variable for use in a program.
+
+WRITE (to file)
+An operation that stores data from a program into an external file; this may overwrite existing contents.
+
+APPEND (to file)
+An operation that adds data to the end of an existing file without erasing its current contents.
+
+OPENFILE
+The pseudocode keyword to open a text file for reading or writing.
+
+Open mode
+The way in which a text file will be used in respect to its data - READ, WRITE, or APPEND
+
+CLOSEFILE
+The pseudocode keyword to shut down the connection to a text file. Prevents a memory leak that could occur if the text file was left open unnecessarily.
+
+EOF()
+A function in pseudocode that is used in a WHILE loop's condition when reading from a text file. EOF() stands for 'End of File'.
+
+
+## 8.4 Testing & Validation
+Validation
+The process of checking that data entered meets certain rules or criteria before it is accepted by the system. Examples include length check, presence check, range check, type check, and format/picture check.
+
+Verification
+The process of checking that data has been accurately transferred or entered, such as double entry or visual checks.
+
+Range Check
+A validation check that ensures a value falls within a specified minimum and maximum range.
+
+Length Check
+A validation check that ensures the data entered has an acceptable number of characters.
+
+Type Check
+A validation check that ensures the data entered is of the correct data type (e.g. integer, not string).
+
+Presence Check
+A validation check that ensures a required field is not left empty.
+
+Format Check
+A validation check that ensures data is entered in a specific pattern (e.g. DD/MM/YYYY for a date).
+
+Check Digit (Validation)
+An extra digit appended to a code that is calculated from the other digits to detect data entry errors.
+
+Test Data
+Data used to test a program, including normal, abnormal (erroneous), extreme, and boundary values.
+
+Normal Data
+Test data that the program should accept and process correctly under typical conditions.
+
+Abnormal (Erroneous) Data
+Test data that the program should reject because it is invalid or outside the acceptable range.
+
+Extreme Data
+Test data at the very edges of the acceptable range that the program should still accept.
+
+Boundary Data
+Test data at the exact limits of the acceptable range, testing both the last valid and first invalid values.
+
+Syntax Error
+An error caused by breaking the rules of the programming language, preventing the program from compiling or running.
+
+Logic Error
+An error where the program runs but produces incorrect results because the algorithm is wrong.
+
+Runtime Error
+An error that occurs while the program is running, such as division by zero or accessing an invalid array index.
+
+
+# 9. Databases
+
+## 9.1 Database Concepts
+Database
+An organised collection of structured data stored electronically, allowing efficient retrieval, modification, and management.
+
+Table (Relation)
+A structured set of data in a database, organised into rows (records) and columns (fields).
+
+Record
+A single row in a database table representing a complete set of related data about one item or entity.
+
+Field
+A single column in a database table representing one category of data (e.g. Name, Date of Birth).
+
+Primary Key
+A unique field (or combination of fields) that uniquely identifies each record in a database table.
+
+Foreign Key
+A field in one table that links to the primary key of another table, establishing a relationship between them.
+
+Flat-File Database
+A simple database consisting of a single table with no relationships to other tables.
+
+Relational Database
+A database that organises data into multiple linked tables using primary and foreign keys to establish relationships.
+
+One-to-One Relationship
+A relationship where one record in a table is linked to exactly one record in another table.
+
+One-to-Many Relationship
+A relationship where one record in a table can be linked to multiple records in another table.
+
+Data Redundancy
+The unnecessary duplication of data within a database, which wastes storage and can cause inconsistencies.
+
+Data Inconsistency
+When different copies of the same data do not match, often caused by data redundancy.
+
+
+## 9.2 SQL
+SQL (Structured Query Language)
+A standard language used to create, read, update, and delete data in relational databases.
+
+SELECT
+An SQL command used to retrieve specific fields from a database table (e.g. SELECT Name FROM Students).
+
+FROM
+An SQL clause that specifies which table to retrieve data from.
+
+WHERE
+An SQL clause that filters records based on a specified condition (e.g. WHERE Age > 16).
+
+ORDER BY
+An SQL clause that sorts the query results in ascending (ASC) or descending (DESC) order.
+
+INSERT INTO
+An SQL command used to add a new record into a database table.
+
+UPDATE
+An SQL command used to modify existing data in a database table.
+
+DELETE
+An SQL command used to remove records from a database table.
+
+AND / OR / NOT
+Logical operators used in SQL WHERE clauses to combine or negate multiple conditions.
+
+Wildcard (*)
+A symbol used in SQL to select all fields from a table (e.g. SELECT * FROM Students).
+
+SUM / COUNT / AVG
+SQL aggregate functions used to calculate the total, count, or average of values in a field.
+
+
+# 10. Boolean Logic
+
+## 10.1 Logic Gates
+Logic Gate
+An electronic circuit that performs a Boolean operation on one or more binary inputs to produce a single output.
+
+AND Gate
+A logic gate that outputs 1 only when all inputs are 1.
+
+OR Gate
+A logic gate that outputs 1 when at least one input is 1.
+
+NOT Gate (Inverter)
+A logic gate that outputs the opposite of its single input (1 becomes 0, 0 becomes 1).
+
+NAND Gate
+A logic gate that outputs 0 only when all inputs are 1; it is the inverse of an AND gate.
+
+NOR Gate
+A logic gate that outputs 1 only when all inputs are 0; it is the inverse of an OR gate.
+
+XOR Gate
+A logic gate that outputs 1 only when the inputs are different (one is 0 and the other is 1).
+
+Truth Table
+A table that shows all possible combinations of inputs to a logic gate or circuit and the resulting output.
+
+Boolean Expression
+A mathematical expression using AND, OR, and NOT operators to represent the logic of a circuit (e.g. X = A AND (B OR NOT C)).
+
+Logic Circuit
+A combination of two or more logic gates connected together to perform a more complex Boolean operation.
