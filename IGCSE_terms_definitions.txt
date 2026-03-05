@@ -555,21 +555,21 @@ Constant
 A named storage location in memory whose value is set once and cannot be changed during program execution.
 
 Data Type
-A classification that defines what kind of data a variable can hold, such as Integer, Real, String, Char, or Boolean.
+A classification that defines what kind of data a variable can hold, such as INTEGER, REAL, STRING, CHAR, or BOOLEAN.
 
-Integer
+INTEGER
 A data type that stores whole numbers, both positive and negative (e.g. -3, 0, 42).
 
-Real (Float)
+REAL (Double in Java)
 A data type that stores numbers with a decimal point (e.g. 3.14, -0.5).
 
-String
+STRING
 A data type that stores a sequence of characters (e.g. "Hello").
 
-Char
+CHAR
 A data type that stores a single character (e.g. 'A', '7').
 
-Boolean
+BOOLEAN
 A data type that can only hold one of two values: TRUE or FALSE.
 
 Flag Variable
@@ -684,7 +684,7 @@ Length Check
 A validation check that ensures the data entered has an acceptable number of characters.
 
 Type Check
-A validation check that ensures the data entered is of the correct data type (e.g. integer, not string).
+A validation check that ensures the data entered is of the correct data type (e.g. INTEGER, not STRING).
 
 Presence Check
 A validation check that ensures a required field is not left empty.
